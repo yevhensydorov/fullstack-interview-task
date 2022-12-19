@@ -44,7 +44,7 @@ I’ve added a new `/generatecsv` endpoint to the Admin service router. <br />Th
 
 ## Task execution process
 
-I’ve decided to start from updation dependencies because from looking at readme and services package.json there was a feeling that the project needed that. I removed the **bodyParser** from the package.json (it comes from the node now). Installed **axios** to use it instead of the **request** library because it’s deprecated (https://github.com/request/request/issues/3142). I also needed to do a small refactor, so services will be using **axios** instead of **request** . I also installed **Jest** for unit testing purposes. <br />
+I’ve decided to start from updation dependencies because from looking at readme and services package.json there was a feeling that the project needed that. I removed the **bodyParser** from the package.json (it comes from the node now). Installed **axios** to use it instead of the **request** library because it’s deprecated (https://github.com/request/request/issues/3142). I also needed to do a small refactor, so services will be using **axios** instead of **request**. I also installed **Jest** for unit testing purposes. <br />
 
 The next thing to do was create a `getUserHoldings ` function and unit test for this logic. I’ve decided to use vanilla js instead of `Ramda` for this purpose. The reason being is that using a vanilla js, in this case, would be more readable for more devs and might be quicker. Unit test checks both happy and falsy flow/passed parameters. 
 
@@ -61,7 +61,7 @@ As a final step of this task execution process, I’ve added a `/generatecsv` en
 ## Answers to the following questions
 
 ### How might you make this service more secure?
-All the data from responses are personal. If an attacker has this type of data (names, investments amount, financial companies) it can be easily accessible for a breach. 
+All the data from responses are personal or for internal API usage only (financial companies list in our case). If an attacker has this type of data (names, investments amount, financial companies) it can be easily accessible for a breach. 
 
 Adding TLS certificates (using HTTPS and validating servers’ identity), SSH keys and authentication can improve secure communication between the services. We can also limit some privilege access scope using authorization. 
 
